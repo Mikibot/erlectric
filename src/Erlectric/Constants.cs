@@ -24,6 +24,7 @@ namespace Erlectric {
 		public const byte EXPORT_EXT		= (byte)'q';	// 113 [atom:Module, atom:Function, smallint:Arity]
 		public const byte NEW_REFERENCE_EXT	= (byte)'r';	// 114 [UInt16:Len, atom:Node, UInt8:Creation, Len*UInt32:ID]
 		public const byte SMALL_ATOM_EXT	= (byte)'s';	// 115 [UInt8:Len, Len:AtomName]
+        public const byte MAP_EXT          = (byte)'t';    // 116 [Len:Pairs, N]
 		public const byte FUN_EXT		= (byte)'u';	// 117 [UInt4:NumFree, pid:Pid, atom:Module, int:Index, int:Uniq, NumFree*ext:FreeVars]
 		public const byte COMPRESSED		= (byte)'P';	// 80  [UInt4:UncompressedSize, N:ZlibCompressedData]
 	}

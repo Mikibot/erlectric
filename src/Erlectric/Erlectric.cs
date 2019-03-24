@@ -293,7 +293,21 @@ namespace Erlectric {
 						throw new EncodingError(string.Format("invalid float encoding: \"{0}\"", ds));
 					}
 
-				case Constants.NIL_EXT:
+                case Constants.MAP_EXT:
+                {
+                    int arity = DecodeInt(encoded, ref offset);
+                    var dict = new Dictionary<Atom, object>(arity);
+                    for(int i = 0; i < arity; i++)
+                    {
+                        var key = DecodePart(encoded, ref offset);
+                        var val = DecodePart(encoded, ref offset);
+                        dict.Add((Atom)key, val);
+                    }
+                    return dict;
+                }
+
+
+                case Constants.NIL_EXT:
 					return new ArrayList();
 
 				default:
